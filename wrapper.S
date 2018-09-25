@@ -21,40 +21,43 @@
 
 #include "parameters.h"
     PRESERVE8
-#include "random.s"
+#include "random.S"
+
+    IF MODE == ISW
+#include "1_isw.S"
     
-    IF MODE = ISW
-#include "1_isw.s"
+    ELIF MODE == ISW_UNROLLED
+#include "1_isw_unrolled.S"
     
-    ELIF MODE = ISW_UNROLLED
-#include "1_isw_unrolled.s"
+    ELIF MODE == BDFGSS
+#include "2_bdfgss.S"
     
-    ELIF MODE = BDFGSS
-#include "2_bdfgss.s"
+    ELIF MODE == BDFGSS_UNROLLED
+#include "2_bdfgss_unrolled.S" 
     
-    ELIF MODE = BDFGSS_UNROLLED
-#include "2_bdfgss_unrolled.s" 
+    ELIF MODE == BBPPTV
+#include "3_bbpptv.S"
     
-    ELIF MODE = BBPPTV
-#include "3_bbpptv.s"
+    ELIF MODE == BBPPTV_UNROLLED
+#include "3_bbpptv_unrolled.S"
     
-    ELIF MODE = BBPPTV_UNROLLED
-#include "3_bbpptv_unrolled.s"
+    ELIF MODE == BBPPTV_ORIGINAL
+#include "3_bbpptv_original.S"
     
-    ELIF MODE = BBPPTV_ORIGINAL
-#include "3_bbpptv_original.s"
+    ELIF MODE == BCPZ_MACRO
+#include "4_bcpz_macro.S"
     
-    ELIF MODE = BCPZ_MACRO
-#include "4_bcpz_macro.s"
+    ELIF MODE == BCPZ_FUNCTION
+#include "4_bcpz_function.S"
     
-    ELIF MODE = BCPZ_FUNCTION
-#include "4_bcpz_function.s"
+    ELIF MODE == ISW_REFRESH
+#include "5_isw_refresh.S"
     
-    ELIF MODE = ISW_REFRESH
-#include "5_isw_refresh.s"
-    
-    ELIF MODE = BDFGSS_REFRESH
-#include "5_bdfgss_refresh.s"
+    ELIF MODE == BDFGSS_REFRESH
+#include "5_bdfgss_refresh.S"
+
+    ELIF MODE == PINI1
+#include "6_pini1.S"
     
     ENDIF
     
@@ -66,32 +69,35 @@
 wrapper_mul
     push{R3-R12, LR}
     
-    IF      MODE = ISW 
+    IF      MODE == ISW 
     BL  isw_mult    
     
-    ELIF    MODE = ISW_UNROLLED
+    ELIF    MODE == ISW_UNROLLED
     BL  unrolled_isw_mult
 
-    ELIF    MODE = BDFGSS 
+    ELIF    MODE == BDFGSS 
     BL  bdfgss_mult
     
-    ELIF    MODE = BDFGSS_UNROLLED
+    ELIF    MODE == BDFGSS_UNROLLED
     BL  unrolled_bdfgss_mult
 
-    ELIF    MODE = BBPPTV
+    ELIF    MODE == BBPPTV
     BL  bbpptv_mult
 
-    ELIF    MODE = BBPPTV_UNROLLED
+    ELIF    MODE == BBPPTV_UNROLLED
     BL  unrolled_bbpptv_mult
 
-    ELIF    MODE = BBPPTV_ORIGINAL
+    ELIF    MODE == BBPPTV_ORIGINAL
     BL  original_bbpptv_mult
 
-    ELIF    MODE = BCPZ_MACRO 
+    ELIF    MODE == BCPZ_MACRO 
     BL  macro_bcpz_mult
 
-    ELIF    MODE = BCPZ_FUNCTION
+    ELIF    MODE == BCPZ_FUNCTION
     BL  function_bcpz_mult
+
+    ELIF    MODE == PINI1
+    BL  pini1_mult
 
     ENDIF
     
@@ -103,10 +109,10 @@ wrapper_mul
 wrapper_ref
     push{R3-R12, LR}
 
-    IF  MODE = ISW_REFRESH
+    IF  MODE == ISW_REFRESH
     BL  isw_refresh
 
-    ELIF    MODE = BDFGSS_REFRESH
+    ELIF    MODE == BDFGSS_REFRESH
     BL  bdfgss_refresh  
 
     ENDIF 

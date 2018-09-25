@@ -115,7 +115,7 @@ unrolled_bbpptv_mult
     ;;                               ;;
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     
-    IF MASKING_ORDER = 2
+    IF MASKING_ORDER == 2
 
     get_random R3, R7
     ;;c_1 = a_1 * b_1
@@ -147,7 +147,7 @@ unrolled_bbpptv_mult
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     
 
-    ELIF MASKING_ORDER = 4
+    ELIF MASKING_ORDER == 4
 
     get_random R3, R7 ;; r_0
     get_random R4, R7 ;; r_1
@@ -196,7 +196,7 @@ unrolled_bbpptv_mult
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     
 
-    ELIF MASKING_ORDER = 8
+    ELIF MASKING_ORDER == 8
 
     LDR     R10, =randTable  ;; Table for the s
     
@@ -280,7 +280,7 @@ unrolled_bbpptv_mult
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
-    ELIF MASKING_ORDER = 16
+    ELIF MASKING_ORDER == 16
     
     LDR        R10, =randTable  ;; Table for the s
 
@@ -450,7 +450,7 @@ ignore2
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
-    ELIF    MASKING_ORDER = 32
+    ELIF    MASKING_ORDER == 32
     
     LDR     R10, =randTable  ;; Table for the s
     

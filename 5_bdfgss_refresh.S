@@ -47,7 +47,7 @@ bdfgss_refresh
     ;;                               ;;
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    IF MASKING_ORDER = 2
+    IF MASKING_ORDER == 2
 
     ;; r_0 = a
     LDR     R0, [R0]
@@ -75,7 +75,7 @@ bdfgss_refresh
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-    ELIF MASKING_ORDER = 4
+    ELIF MASKING_ORDER == 4
 
     ;; r_0 = a
     LDR     R0, [R0]
@@ -103,7 +103,7 @@ bdfgss_refresh
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-    ELIF MASKING_ORDER = 8
+    ELIF MASKING_ORDER == 8
 
     ;; r_0 = a
     LDR     R0, [R0]
@@ -131,7 +131,7 @@ bdfgss_refresh
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-    ELIF MASKING_ORDER = 16
+    ELIF MASKING_ORDER == 16
 
     ;; r_0 = a
     LDR     R0, [R0]
@@ -159,7 +159,7 @@ bdfgss_refresh
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-    ELIF MASKING_ORDER = 32
+    ELIF MASKING_ORDER == 32
 
     ;; r_0 = a
     LDR     R0, [R0]

@@ -55,7 +55,7 @@ LOOP_COND   EQU ((MASKING_ORDER-((MASKING_ORDER-3)&0x3))>>1)
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-    IF  MASKING_ORDER = 4   
+    IF  MASKING_ORDER == 4   
 
     ;; ------------------------------------------------------------------------
     ;; Set a register to the masked value to the internal rotations
@@ -80,7 +80,7 @@ mask_repetition SETA  mask_repetition+1
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-    ELIF    MASKING_ORDER = 8
+    ELIF    MASKING_ORDER == 8
 
     ;; ------------------------------------------------------------------------
     ;; Set a register to the masked value to the internal rotations
@@ -105,7 +105,7 @@ mask_repetition SETA  mask_repetition+1
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
-    ELIF    MASKING_ORDER = 16
+    ELIF    MASKING_ORDER == 16
 
     ;; ------------------------------------------------------------------------
     ;; Set a register to the masked value to the internal rotations

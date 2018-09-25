@@ -83,21 +83,25 @@
 ;;                                                                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+LTORG
 
 unrolled_isw_mult
 
     ;; ------------------------------------------------------------------------
     ;; init phase
     LDR     R7, =RNGTab
+    B unrolled_isw_mul_impl
+    LTORG
 
 
+unrolled_isw_mul_impl
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;;                               ;;
     ;;       UNROLLED ISW : D=2      ;;
     ;;                               ;;
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    IF      MASKING_ORDER = 2
+    IF      MASKING_ORDER == 2
 
     ;; loop for a_i AND b_i
     computation_aibi R0, R1, R2, R4, R5, R6, 0
@@ -113,7 +117,7 @@ unrolled_isw_mult
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
         
-    ELIF    MASKING_ORDER = 4
+    ELIF    MASKING_ORDER == 4
 
     ;; ------------------------------------------------------------------------
     ;; loop for a_i AND b_i
@@ -141,7 +145,7 @@ unrolled_isw_mult
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
         
-    ELIF    MASKING_ORDER = 8
+    ELIF    MASKING_ORDER == 8
 
     ;; ------------------------------------------------------------------------
     ;; loop for a_i AND b_i
@@ -195,7 +199,7 @@ unrolled_isw_mult
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
-    ELIF    MASKING_ORDER = 16
+    ELIF    MASKING_ORDER == 16
 
     ;; ------------------------------------------------------------------------
     ;; loop for a_i AND b_i
@@ -367,7 +371,7 @@ ignore1
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
-    ELIF    MASKING_ORDER = 32
+    ELIF    MASKING_ORDER == 32
 
     ;; ------------------------------------------------------------------------
     ;; loop for a_1 AND b_i

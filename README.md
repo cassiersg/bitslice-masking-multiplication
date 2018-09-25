@@ -74,4 +74,5 @@ To test the code:
 * install Keil µVision (version 5 or higher), 
 * create a project for a ARMv7 target (little endian)
 * add the source files (wrapper.s, parameter.h and main.c) to the project and run.
+* when building, always use "Rebuild" instead of "Build" since header dependencies for `.s` are not taken into account
 

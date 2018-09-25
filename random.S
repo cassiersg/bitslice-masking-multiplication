@@ -41,7 +41,7 @@
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
         
-    IF      RAND_MODE = TRNG1
+    IF      RAND_MODE == TRNG1
     MACRO   
     get_random $rnd, $pttab
     LDR     $rnd, [$pttab]
@@ -55,7 +55,7 @@
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
-    ELIF    RAND_MODE = TRNG2
+    ELIF    RAND_MODE == TRNG2
     MACRO   
     get_random $rnd, $pttab
     push{LR}

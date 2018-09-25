@@ -40,11 +40,12 @@
 #define BCPZ_FUNCTION       42      // BCPZ multiplication with a mix of macros and functions
 #define ISW_REFRESH         5		// ISW refresh
 #define BDFGSS_REFRESH      6		// BDFGSS refresh
+#define PINI1               71         // PINI1 multiplication
 
 /* Code mode definitions */
-#define MASKING_ORDER       2						// Set the masking order (must be a power of 2)
+#define MASKING_ORDER       32						// Set the masking order (must be a power of 2)
 #define NB_ELM_PBM          (32/MASKING_ORDER)		// Defines the number of elements per register for BDFGSS based multiplication
-#define MODE                ISW						// Set the multiplication or refresh to test
+#define MODE                PINI1                         // Set the multiplication or refresh to test
 #define RAND_MODE           TRNG1					// Set the TRNG to be used
 
 

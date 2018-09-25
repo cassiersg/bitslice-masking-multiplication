@@ -46,7 +46,7 @@ isw_refresh
     ;;                               ;;
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    IF      MASKING_ORDER = 2
+    IF      MASKING_ORDER == 2
 
 	;; ldr a_0
     LDR     R4, [R0, #0]

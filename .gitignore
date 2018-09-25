@@ -50,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+EventRecorderStub.scvd
+Listings/
+Objects/
+RTE/
+bench.uvguix.cgaetan
